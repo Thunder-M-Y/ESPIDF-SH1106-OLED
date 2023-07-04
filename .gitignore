@@ -1,0 +1,7 @@
+/build/
+/.vscode/
+/.devcontainer/
+/dependencies.lock
+/sdkconfig
+/sdkconfig.old
+/*.bak
