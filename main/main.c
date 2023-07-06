@@ -146,7 +146,7 @@ static void oled_update_display()
     for (int page = 0; page < OLED_HEIGHT / 8; page++)
     {
         oled_write_command(0xB0 + page); // 设置页地址
-        oled_write_command(0x02);        // 设置低列地址
+        oled_write_command(0x01);        // 设置低列地址  ,0x00时屏幕右侧有一条竖线乱码
         oled_write_command(0x10);        // 设置高列地址
 
         uint8_t *page_data = &oled_buffer[page * OLED_WIDTH / 8];
@@ -169,6 +169,6 @@ void app_main(void)
 
     while (1)
     {
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        vTaskDelay(1000 / portMAX_DELAY);
     }
 }
